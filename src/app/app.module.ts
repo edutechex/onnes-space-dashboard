@@ -28,6 +28,12 @@ import { AboutusComponent } from './content-upload/aboutus/aboutus.component';
 import { AddOrEditAboutusComponent } from './content-upload/aboutus/add-or-edit-aboutus/add-or-edit-aboutus.component';
 import { TeamComponent } from './content-upload/team/team.component';
 import { AddOrEditTeamComponent } from './content-upload/team/add-or-edit-team/add-or-edit-team.component';
+import { BlogNewsComponent } from './content-upload/blog-news/blog-news.component';
+import { AddOrEditBlogNewsComponent } from './content-upload/blog-news/add-or-edit-blog-news/add-or-edit-blog-news.component';
+import { OfferingComponent } from './content-upload/offering/offering.component';
+import { AddOrEditOfferingComponent } from './content-upload/offering/add-or-edit-offering/add-or-edit-offering.component';
+import { JoinUsComponent } from './content-upload/join-us/join-us.component';
+import { AddOrEditJoinUsComponent } from './content-upload/join-us/add-or-edit-join-us/add-or-edit-join-us.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,13 @@ import { AddOrEditTeamComponent } from './content-upload/team/add-or-edit-team/a
     AboutusComponent,
     AddOrEditAboutusComponent,
     TeamComponent,
-    AddOrEditTeamComponent
+    AddOrEditTeamComponent,
+    BlogNewsComponent,
+    AddOrEditBlogNewsComponent,
+    OfferingComponent,
+    AddOrEditOfferingComponent,
+    JoinUsComponent,
+    AddOrEditJoinUsComponent
   ],
   imports: [
     BrowserModule,

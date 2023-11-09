@@ -28,6 +28,7 @@ export class AddOrEditNavItemComponent implements OnInit{
     this.addEditNavItemForm = this.fb.group({
       navbarName: new FormControl('',[Validators.required]),
       navbarSubName: '',
+      routerLink: '',
     });
   }
 
@@ -42,12 +43,14 @@ export class AddOrEditNavItemComponent implements OnInit{
           id: this.datas.id,
           navbarName: this.addEditNavItemForm.controls['navbarName'].value,
           navbarSubName: this.addEditNavItemForm.controls['navbarSubName'].value,
+          routerLink : this.addEditNavItemForm.controls['routerLink'].value,
         }
         this.editNavItemForm(editNavItemData);
       }else{
         const addNavItemData : addNavItem = {
           navbarName: this.addEditNavItemForm.controls['navbarName'].value,
           navbarSubName: this.addEditNavItemForm.controls['navbarSubName'].value,
+          routerLink : this.addEditNavItemForm.controls['routerLink'].value,
         }
         this.addNavItemForm(addNavItemData);
       }

@@ -27,12 +27,28 @@
                 class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
                 data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
                 aria-selected="false">
-                <mat-icon class="fs-2"> library_add</mat-icon><span class="ps-4 pb-1">About Us</span></a></li>
+                <mat-icon class="fs-2"> description </mat-icon><span class="ps-4 pb-1">About Us</span></a></li>
             <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('team');"
                 class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
                 data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
                 aria-selected="false">
-                <mat-icon class="fs-2"> library_add</mat-icon><span class="ps-4 pb-1">Team</span></a></li>
+                <mat-icon class="fs-2"> group_work </mat-icon><span class="ps-4 pb-1">Team</span></a></li>
+            <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('offering');"
+                class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
+                data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
+                aria-selected="false">
+                <mat-icon class="fs-2"> picture_in_picture</mat-icon><span class="ps-4 pb-1">Offering </span></a></li>
+            <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('blogNews');"
+                class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
+                data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
+                aria-selected="false">
+                <mat-icon class="fs-2"> assignment</mat-icon><span class="ps-4 pb-1">Blog & News </span></a></li>
+            <li class="nav-item mb-3"><a href="javascript: void(0)" (click)="appService.openSection('joinus');"
+                class="nav-link text-white d-flex align-items-center" id="course-pills-tab-1" data-bs-toggle="pill"
+                data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
+                aria-selected="false">
+                <mat-icon class="fs-2"> input</mat-icon><span class="ps-4 pb-1">Join Us </span></a></li>
+                
         </ul>
         <!-- Tabs END -->
     </mat-sidenav>
@@ -74,6 +90,15 @@
                 </div>
                 <div *ngIf="appService.team">
                     <app-team></app-team>
+                </div>
+                <div *ngIf="appService.offering">
+                    <app-offering></app-offering>
+                </div>
+                <div *ngIf="appService.blogNews">
+                    <app-blog-news></app-blog-news>
+                </div>
+                <div *ngIf="appService.joinus">
+                    <app-join-us></app-join-us>
                 </div>
                 
             </div>

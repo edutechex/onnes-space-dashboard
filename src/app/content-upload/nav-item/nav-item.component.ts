@@ -33,6 +33,7 @@ export class NavItemComponent implements OnInit{
     'id',
     'navbarName',
     'subNavbar',
+    'routerlink',
     'edit/delete',
   ];
   allNavList: any;

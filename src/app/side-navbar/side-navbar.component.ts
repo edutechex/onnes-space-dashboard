@@ -14,7 +14,7 @@ export class SideNavbarComponent implements OnInit {
   constructor(
     public appService: AppService,
     private router: Router,
-    private location : Location
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -22,15 +22,17 @@ export class SideNavbarComponent implements OnInit {
     this.currentUserData = localStorage.getItem('currentUser');
   }
 
-  openSection(sectionName:string){
-    this.appService.dashboard = false ;
+  openSection(sectionName: string) {
+    this.appService.dashboard = false;
     this.appService.contactusForm = false;
     this.appService.navItem = false;
     this.appService.aboutUs = false;
     this.appService.team = false;
+    this.appService.offering = false;
+    this.appService.joinus = false;
 
 
-    switch(sectionName){ 
+    switch (sectionName) {
       case 'dashboard':
         this.appService.dashboard = true;
         break;
@@ -44,14 +46,23 @@ export class SideNavbarComponent implements OnInit {
         this.appService.aboutUs = true;
         break;
       case 'team':
-      this.appService.team = true;
+        this.appService.team = true;
+        break;
+      case 'blogNews':
+        this.appService.blogNews = true;
+        break;
+      case 'offering':
+        this.appService.offering = true;
+        break;
+      case 'joinus':
+      this.appService.joinus = true;
       break;
     }
   }
 
   // Signout or Sign In
   public signout() {
-    if(localStorage.length){
+    if (localStorage.length) {
       this.appService.signOut = true;
       localStorage.clear();
     } else {
