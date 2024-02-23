@@ -28,6 +28,7 @@ export class AddOrEditBlogNewsComponent implements OnInit{
     this.addEditblogNewsItemForm = this.fb.group({
       imageFile : '',
       content : new FormControl('',[Validators.required]),
+      link : new FormControl('',[Validators.required]),
     })
   }
   ngOnInit(): void {
@@ -49,12 +50,14 @@ export class AddOrEditBlogNewsComponent implements OnInit{
           id:this.datas.id,
           imageFile : this.addEditblogNewsItemForm.controls['imageFile'].value,
           content : this.addEditblogNewsItemForm.controls['content'].value,
+          link : this.addEditblogNewsItemForm.controls['link'].value,
         }
         this.editBlogNews(editBlogData);
       }else{
         const addBlogData : addBlogNews = {
           imageFile : this.addEditblogNewsItemForm.controls['imageFile'].value,
           content : this.addEditblogNewsItemForm.controls['content'].value,
+          link : this.addEditblogNewsItemForm.controls['link'].value,
         }
         this.addBlogsNewsFun(addBlogData);
       }
@@ -65,6 +68,7 @@ export class AddOrEditBlogNewsComponent implements OnInit{
     const formData: any  = new FormData();
     formData.append('imageFile',this.file);
     formData.append('content',this.addEditblogNewsItemForm.get('content').value);
+    formData.append('link',this.addEditblogNewsItemForm.get('link').value);
 
     this.appService.addBlogNewsData(formData).subscribe({
       next:(res)=>{
@@ -86,6 +90,7 @@ export class AddOrEditBlogNewsComponent implements OnInit{
     formData.append('id',data.id);
     formData.append('imageFile',this.file);
     formData.append('content',this.addEditblogNewsItemForm.get('content').value);
+    formData.append('link',this.addEditblogNewsItemForm.get('link').value);
 
     this.appService.updateBlogNews(formData).subscribe({
       next:(res)=>{

@@ -30,8 +30,10 @@ export class TeamComponent implements OnInit{
   public displayedColumns = [
     'id',
     'name',
+    'img',
     'desg',
     'about',
+    'link',
     'edit/delete',
   ];
   allTeamList: any;

@@ -1,15 +1,15 @@
 <section class="mx-2 p-3 card bg-white rounded-0">
     <div class="ms-2 d-flex justify-content-between align-items-center">
-        <h2 class="ps-3 fw-bold">Join Us List</h2>
+        <h2 class="ps-3 fw-bold"> Content List</h2>
     </div>
     <!-- Add Nav-Item button -->
     <div class="mx-2 mb-4">
-        <button type="submit" (click)="openAddJoinUsModal()" mat-raised-button class="mx-2"
-        style="background-color: #1B75BC; color: white;">Add Join Us</button>
+        <button type="submit" (click)="openAddCfrpModal()" mat-raised-button class="mx-2"
+        style="background-color: #1B75BC; color: white;">Add Content</button>
     </div> 
 
     <!-- Table data -->
-    <mat-table [dataSource]="joinUsDataSource" matSort>
+    <mat-table [dataSource]="cfrpDataSource" matSort>
         <!-- ID Column -->
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> S.No </mat-header-cell>
@@ -27,12 +27,12 @@
                 <ul class="list-unstyled p-2 px-3 mb-0">
                     <li>
                         <a class="d-flex text-decoration-none custom-icon"
-                            (click)="openEditJoinModal(element);" style="cursor: pointer;">
+                            (click)="openEditCfrpModal(element);" style="cursor: pointer;">
                             <mat-icon class=" px-1 ">edit</mat-icon> Edit
                         </a>
                     </li>
                     <li >
-                        <a class="d-flex text-decoration-none custom-icon" (click)="openDeleteJoinConfirm(element?.id)" style="cursor:pointer;">
+                        <a class="d-flex text-decoration-none custom-icon" (click)="openDeleteCfrpConfirm(element?.id)" style="cursor:pointer;">
                             <mat-icon class=" px-1 ">delete_outline</mat-icon> Delete
                         </a>
                     </li>
@@ -49,10 +49,10 @@
                 No data available to show.
             </mat-footer-cell>
         </ng-container>
-        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':joinUsDataSource!=null}">
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':cfrpDataSource!=null}">
         </mat-footer-row>
         <mat-footer-row *matFooterRowDef="['noData']"
-            [ngClass]="{'hide':!(joinUsDataSource!=null && joinUsDataSource.data.length==0)}">
+            [ngClass]="{'hide':!(cfrpDataSource!=null && cfrpDataSource.data.length==0)}">
         </mat-footer-row>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -72,18 +72,19 @@
         
         <ng-template #deleteNavConfirm>
             <div mat-dialog-title>
-                <span>Delete Join Us?</span>
+                <span>Delete Content?</span>
             </div>
             <hr/>
             <div mat-dialog-content>
                 <p>
-                    Do you really want to delete the Join Us?</p>
+                    Do you really want to delete the Content?</p>
             </div>
             <hr/>
             <div mat-dialog-actions class="justify-content-between m-2">
                 <button mat-button (click)="closeModal()">Cancel</button>
-                <button style="color: black;" mat-button (click)="deleteJoinUsItem()" cdkFocusInitial>Ok</button>
+                <button style="color: black;" mat-button (click)="deleteCfrpItem()" cdkFocusInitial>Ok</button>
             </div>
         </ng-template>
 </section>
+
 

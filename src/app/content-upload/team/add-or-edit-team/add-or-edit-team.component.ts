@@ -13,6 +13,7 @@ export class AddOrEditTeamComponent implements OnInit{
   addEditTeamItemForm: any = FormGroup;
   success : boolean = false;
   err : boolean = false;
+  url : any;
 
   @ViewChild('successMsg') successDialog = {} as TemplateRef<any>;
 
@@ -25,12 +26,22 @@ export class AddOrEditTeamComponent implements OnInit{
   ){
     this.addEditTeamItemForm = this.fb.group({
       name: new FormControl('',[Validators.required]),
+      imageFile : '',
       designation: new FormControl('',[Validators.required]),
       about: new FormControl('',[Validators.required]),
+      link : new FormControl('',[Validators.required]),
     })
   }
   ngOnInit(): void {
     this.addEditTeamItemForm.patchValue(this.datas);
+  }
+
+  file:any;
+  onFilechange(event: any) {
+    this.file = event.target.files[0];
+    this.addEditTeamItemForm.patchValue({
+      questionImages : this.file ,
+    });
   }
 
   addeditTeamItem(){
@@ -39,15 +50,19 @@ export class AddOrEditTeamComponent implements OnInit{
         const editTeamData : editTeam = {
           id : this.datas.id,
           name : this.addEditTeamItemForm.controls['name'].value,
+          imageFile : this.addEditTeamItemForm.controls['imageFile'].value,
           designation : this.addEditTeamItemForm.controls['designation'].value,
           about : this.addEditTeamItemForm.controls['about'].value,
+          link : this.addEditTeamItemForm.controls['link'].value,
         }
         this.editTeamForm(editTeamData);
       }else{
         const addTeamdata : addTeam = {
           name : this.addEditTeamItemForm.controls['name'].value,
+          imageFile : this.addEditTeamItemForm.controls['imageFile'].value,
           designation : this.addEditTeamItemForm.controls['designation'].value,
           about : this.addEditTeamItemForm.controls['about'].value,
+          link : this.addEditTeamItemForm.controls['link'].value,
         }
         this.addteamForm(addTeamdata);
       }
@@ -55,7 +70,15 @@ export class AddOrEditTeamComponent implements OnInit{
   }
 
   addteamForm(data:any){
-    this.appService.addTeam(data).subscribe({
+    const formData: any = new FormData;
+    formData.append('name',this.addEditTeamItemForm.get('name').value);
+    formData.append('imageFile',this.file);
+    formData.append('designation',this.addEditTeamItemForm.get('designation').value);
+    formData.append('about',this.addEditTeamItemForm.get('about').value);
+    formData.append('link',this.addEditTeamItemForm.get('link').value);
+
+
+    this.appService.addTeam(formData).subscribe({
       next:(res)=>{
         this.closeModal();
         this.success = true;
@@ -72,7 +95,15 @@ export class AddOrEditTeamComponent implements OnInit{
   }
 
   editTeamForm(data:any){
-    this.appService.updateTeam(data).subscribe({
+    const formData: any = new FormData;
+    formData.append('id',data.id);
+    formData.append('name',this.addEditTeamItemForm.get('name').value);
+    formData.append('imageFile',this.file);
+    formData.append('designation',this.addEditTeamItemForm.get('designation').value);
+    formData.append('about',this.addEditTeamItemForm.get('about').value);
+    formData.append('link',this.addEditTeamItemForm.get('link').value);
+
+    this.appService.updateTeam(formData).subscribe({
       next:(res)=>{
         this.closeModal();
         this.success = true;
@@ -107,5 +138,16 @@ export class AddOrEditTeamComponent implements OnInit{
     });
   }
 
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+  
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+  
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
 
 }

@@ -16,6 +16,19 @@ export interface addNavItem{
   navbarSubName : string
   routerLink : string
 }
+export interface editHomeImage{
+  id : number
+  text : string
+  imageFile : string
+  order : number
+  colour : string
+}
+export interface addHomeImage{
+  text : string
+  imageFile : string
+  order : number
+  colour : string
+}
 export interface editAboutUs{
   id : number
   imageFile : string
@@ -29,24 +42,30 @@ export interface addAboutUs{
 export interface editTeam{
   id : number
   name : string
+  imageFile : string
   designation : string
   about : string
+  link : string
 }
 
 export interface addTeam{
   name : string
+  imageFile : string
   designation : string
   about : string
+  link : string
 }
 
 export interface editBlogNews{
   id : number
   imageFile : string
   content : string
+  link : string
 }
 export interface addBlogNews{
   imageFile : string
   content : string
+  link : string
 }
 
 export interface editOffering{
@@ -68,5 +87,12 @@ export interface editJoinUs{
 }
 
 export interface addJoinUs{
+  content : string
+}
+export interface editCfrp{
+  id : number
+  content : string
+}
+export interface addCfrp{
   content : string
 }

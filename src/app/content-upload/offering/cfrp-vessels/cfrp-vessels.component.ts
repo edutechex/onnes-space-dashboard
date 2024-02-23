@@ -4,18 +4,17 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppService } from 'src/app/app.service';
-import { AddOrEditBlogNewsComponent } from './add-or-edit-blog-news/add-or-edit-blog-news.component';
+import { AddOrEditCfrpComponent } from './add-or-edit-cfrp/add-or-edit-cfrp.component';
 
 @Component({
-  selector: 'app-blog-news',
-  templateUrl: './blog-news.component.html',
-  styleUrls: ['./blog-news.component.css']
+  selector: 'app-cfrp-vessels',
+  templateUrl: './cfrp-vessels.component.html',
+  styleUrls: ['./cfrp-vessels.component.css']
 })
-export class BlogNewsComponent implements OnInit{
-  blogNewsDataSource: any;
-  success:boolean = false;
-  err:boolean = false;
-  dialogRef: any;
+export class CfrpVesselsComponent implements OnInit{
+  cfrpDataSource: any;
+  success: boolean = false;
+  err: boolean = false;
 
   @ViewChild(MatSort) sort = new MatSort();
   @ViewChild(MatPaginator) paginator = new MatPaginator(
@@ -24,83 +23,77 @@ export class BlogNewsComponent implements OnInit{
   );
 
   @ViewChild('successMsg') successDialog = {} as TemplateRef<any>;
-  @ViewChild('deleteNavConfirm') deleteDialog = {} as TemplateRef<any>;
-
+  @ViewChild('deleteNavConfirm') delteDialog = {} as TemplateRef<any>;
+  
   public displayedColumns = [
     'id',
-    'image',
     'content',
-    'link',
     'edit/delete',
   ];
+  dialogRef: any;
   deleteId: any;
 
   constructor(
     public appService : AppService,
     public dialog : MatDialog,
   ){
-    this.getBlogNewsdata();
-  }
 
+  }
   ngOnInit(): void {
-    
+    this.getCfrpData();
   }
-
-  getBlogNewsdata(){
-    this.appService.getBlogNews().subscribe({
+  getCfrpData(){
+    this.appService.getCfrp().subscribe({
       next:(res)=>{
-        this.blogNewsDataSource = new MatTableDataSource(res);
-        this.blogNewsDataSource.paginator = this.paginator;
-        this.blogNewsDataSource.sort = this.sort;
-      },
-      error:(err)=>{
-
+        this.cfrpDataSource = new MatTableDataSource(res);
+        this.cfrpDataSource.paginator = this.paginator;
+        this.cfrpDataSource.sort = this.sort;
       }
     })
   }
-
-  deleteBlogNewsItem(){
-    this.appService.deleteBlogNews(this.deleteId).subscribe({
+  deleteCfrpItem(){
+    this.appService.deleteCfrp(this.deleteId).subscribe({
       next:(res)=>{
         this.closeModal();
         this.success = true;
         this.err = false;
-        this.succeessmsgDialog('Deleted Successfully');
-        this.getBlogNewsdata();
+        this.successMsgDialog('Deleted SuccessFully');
+        this.getCfrpData();
       },
       error:(err)=>{
         this.success = false;
-        this.err = true;
-        this.succeessmsgDialog(err.message);
+        this.success = true;
+        this.successMsgDialog(err.message);
       }
     })
   }
-
-  openAddBlognewsModal(){
-    const dialogRef = this.dialog.open(AddOrEditBlogNewsComponent,{
-      exitAnimationDuration: '1000',
-      enterAnimationDuration: '1000',
+  openAddCfrpModal(){
+    const  dialogRef = this.dialog.open(AddOrEditCfrpComponent,{
+      exitAnimationDuration:'1000',
+      enterAnimationDuration:'1000',
     });
     dialogRef.afterClosed().subscribe((res)=>{
-      this.getBlogNewsdata();
+      this.getCfrpData();
     })
   }
 
-  openEditBlogNewsModal(data:any){
-    const dialogRef = this.dialog.open(AddOrEditBlogNewsComponent,{
-      exitAnimationDuration: '1000',
-      enterAnimationDuration: '1000',
+  openEditCfrpModal(data:any){
+    const  dialogRef = this.dialog.open(AddOrEditCfrpComponent,{
+      exitAnimationDuration:'1000',
+      enterAnimationDuration:'1000',
       data
     });
     dialogRef.afterClosed().subscribe((res)=>{
-      this.getBlogNewsdata();
+      this.getCfrpData();
     })
   }
-
-  openDeleteBlogNewsConfirm(Id:any){
+  openDeleteCfrpConfirm(Id:any){
     this.deleteId = Id;
-    const dialogRef = this.dialog.open(this.deleteDialog,{
-      width:'auto',
+    const dialogRef = this.dialog.open(this.delteDialog,{
+      width:'auto'
+    });
+    dialogRef.afterClosed().subscribe((res)=>{
+      this.getCfrpData();
     })
   }
 
@@ -108,7 +101,7 @@ export class BlogNewsComponent implements OnInit{
     this.dialog.closeAll();
   }
 
-  succeessmsgDialog(msg:any){
+  successMsgDialog(msg: string) {
     this.appService.httpClientMsg = msg;
     const timeout = 1000;
     const dialogRef = this.dialog.open(this.successDialog, {
@@ -120,5 +113,4 @@ export class BlogNewsComponent implements OnInit{
       }, timeout);
     });
   }
-
 }

@@ -25,10 +25,20 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> Designation </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.designation}} </mat-cell>
         </ng-container>
+        <!-- Img Column -->
+        <ng-container matColumnDef="img" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Image </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <img [src]="element.image" alt="img" width="50" height="50"> </mat-cell>
+        </ng-container>
         <!-- About Column -->
-        <ng-container matColumnDef="about">
+        <ng-container matColumnDef="about" >
             <mat-header-cell *matHeaderCellDef mat-sort-header> About </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.about}} </mat-cell>
+        </ng-container>
+        <!-- Link Column -->
+        <ng-container matColumnDef="link">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Link </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.link}} </mat-cell>
         </ng-container>
         <!-- Edit Delete Column -->
         <ng-container matColumnDef="edit/delete" >

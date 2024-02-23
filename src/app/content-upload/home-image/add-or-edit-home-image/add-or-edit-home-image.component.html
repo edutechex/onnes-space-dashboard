@@ -1,45 +1,37 @@
 <section class="mx-2 p-3 card bg-white rounded-0">
     <div class="ms-3 d-flex justify-content-between align-items-center">
-        <h2 class="ps-3" *ngIf="datas">Edit Team Item</h2>
-        <h2 class="ps-3" *ngIf="!datas">Add Team Item</h2>
+        <h2 class="ps-3" *ngIf="datas">Edit Home Image Item</h2>
+        <h2 class="ps-3" *ngIf="!datas">Add Home Image Item</h2>
     </div>
-    <form [formGroup]="addEditTeamItemForm" (ngSubmit)="addeditTeamItem()">
-        <!-- (ngSubmit)="onFormSubmit()" -->
-        <div class="row justify-content-center my-4">
-            <div class="">
-                <label for="image">Select Image:</label>
+    <form [formGroup]="addEditHomeImageItemForm" (ngSubmit)="addeditHomeImageItem()">
+        <div class="row my-4">
+            <div class="col-lg-12 mb-3">
+                <label for="image" class="col-12 pb-3 fs-4">Select Image :</label>
                 <input  type="file" (change)="this.onFilechange($event)" formControlName="imageFile" (change)="readUrl($event)">
                 <img [src]="url" width="100" height="100">
+                
             </div>
-            <div class="col-lg-6 row">
-                <mat-label class="col-12 pb-3 fs-4"> Name :</mat-label>
-                <mat-form-field appearance="outline"  class="col-8">
-                    <mat-label> Name</mat-label>
-                    <input matInput type="text" placeholder="Enter  name" formControlName="name">
-                </mat-form-field>
-            </div>
-    
-            <div class="col-lg-6 row">
-                <mat-label class="col-12 pb-3 fs-4">Designation :</mat-label>
-                <mat-form-field appearance="outline" class="col-8">
-                    <mat-label>Designation</mat-label>
-                    <input matInput type="text" placeholder="Enter Designation" formControlName="designation">
-                </mat-form-field>
-            </div>
-
-            <div class="col-lg-6 row">
-                <mat-label class="col-12 pb-3 fs-4">About :</mat-label>
+            <div class="col-lg-6 mb-3">
+                <mat-label class="col-12 pb-3 fs-4">Text :</mat-label>
                 <mat-form-field appearance="outline" class="col-8">
                     <mat-label>About</mat-label>
-                    <textarea matInput type="text" placeholder="Enter About" formControlName="about"></textarea>
+                    <textarea matInput type="text" placeholder="Enter About" formControlName="text"></textarea>
                 </mat-form-field>
             </div>
-
-            <div class="col-lg-6 row">
-                <mat-label class="col-12 pb-3 fs-4">Link :</mat-label>
+            <div class="col-lg-6">
+                <mat-form-field>
+                    <mat-label>Color</mat-label>
+                    <mat-select [(value)]="selected" formControlName="colour">
+                        <mat-option value="white">White</mat-option>
+                        <mat-option value="black">Black</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-label class="col-12 pb-3 fs-4">Order :</mat-label>
                 <mat-form-field appearance="outline" class="col-8">
-                    <mat-label>Link</mat-label>
-                    <input matInput type="text" placeholder="Enter Link" formControlName="link">
+                    <mat-label>Order</mat-label>
+                    <input matInput type="text" placeholder="Enter Order" formControlName="order">
                 </mat-form-field>
             </div>
         </div>
@@ -65,5 +57,6 @@
         </div>
     </ng-template>
 </section>
+
 
 

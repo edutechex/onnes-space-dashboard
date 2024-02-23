@@ -30,6 +30,8 @@ export class SideNavbarComponent implements OnInit {
     this.appService.team = false;
     this.appService.offering = false;
     this.appService.joinus = false;
+    this.appService.homeImage = false;
+    this.appService.cfrp = false;
 
 
     switch (sectionName) {
@@ -41,6 +43,9 @@ export class SideNavbarComponent implements OnInit {
         break;
       case 'navItem':
         this.appService.navItem = true;
+        break;
+      case 'navItem':
+        this.appService.homeImage = true;
         break;
       case 'aboutUs':
         this.appService.aboutUs = true;
@@ -54,9 +59,12 @@ export class SideNavbarComponent implements OnInit {
       case 'offering':
         this.appService.offering = true;
         break;
+      case 'cfrp':
+        this.appService.cfrp = true;
+        break; 
       case 'joinus':
-      this.appService.joinus = true;
-      break;
+        this.appService.joinus = true;
+        break;
     }
   }
 

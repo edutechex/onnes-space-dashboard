@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { addAboutUs, addBlogNews, addJoinUs, addOffering, addTeam, editAboutUs, editBlogNews, editJoinUs, editNavItem, editOffering, editTeam } from './app.model';
+import { addAboutUs, addBlogNews, addCfrp, addHomeImage, addJoinUs, addOffering, addTeam, editAboutUs, editBlogNews, editCfrp, editHomeImage, editJoinUs, editNavItem, editOffering, editTeam } from './app.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,13 @@ export class AppService {
   public dashboard: boolean = false;
   public contactusForm: boolean = false;
   public navItem: boolean = false;
+  public homeImage: boolean = false;
   public aboutUs: boolean = false;
   public team: boolean = false;
   public blogNews: boolean = false;
   public offering: boolean = false;
-  public joinus : boolean = false;
+  public joinus: boolean = false;
+  public cfrp : boolean = false;
 
   public signOut: boolean = false;
   public currentUser: any = [];
@@ -33,11 +35,13 @@ export class AppService {
     this.dashboard = false;
     this.contactusForm = false;
     this.navItem = false;
+    this.homeImage = false;
     this.aboutUs = false;
     this.team = false;
     this.blogNews = false;
     this.offering = false;
     this.joinus = false;
+    this.cfrp = false;
 
 
     switch (sectionName) {
@@ -50,6 +54,9 @@ export class AppService {
       case 'navItem':
         this.navItem = true;
         break;
+      case 'homeImage':
+        this.homeImage = true;
+        break;  
       case 'aboutUs':
         this.aboutUs = true;
         break;
@@ -62,9 +69,13 @@ export class AppService {
       case 'offering':
         this.offering = true;
         break;
+      case 'cfrp':
+        this.cfrp = true;
+        break;  
       case 'joinus':
-      this.joinus = true;
-      break;
+        this.joinus = true;
+        break;
+      
     }
   }
 
@@ -95,6 +106,25 @@ export class AppService {
   //delete navItem
   deleteNavItem(Id: any): Observable<any> {
     return this.http.delete(`${this.baseUrl}/NavItem/${Id}`);
+  }
+
+  // addHomeImage
+  addHomeImage(addImage: addHomeImage): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/CarouselImage`, addImage);
+  }
+
+  //getImage
+  getHomeImage(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/CarouselImage`);
+  }
+  //update homeImage
+  updateHomeImage(editImage: editHomeImage): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/CarouselImage/${editImage.id}`, editImage);
+  }
+
+  //delete homePage
+  deleteHomeImage(Id: any) {
+    return this.http.delete(`${this.baseUrl}/CarouselImage/${Id}`);
   }
 
   // add Aboutus
@@ -158,28 +188,47 @@ export class AppService {
     return this.http.get<any>(`${this.baseUrl}/Offering`);
   }
   //Put Offering
-  updateOffering(offer : editOffering): Observable<any>{
-    return this.http.put<any>(`${this.baseUrl}/Offering/${offer.id}`,offer);
+  updateOffering(offer: editOffering): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/Offering/${offer.id}`, offer);
   }
   //Delete Offering
-  deleteOffering(Id:any){
+  deleteOffering(Id: any) {
     return this.http.delete(`${this.baseUrl}/Offering/${Id}`);
   }
 
   //add joinus
-  addJoinUs(join : addJoinUs) : Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/JoinUs`,join);
+  addJoinUs(join: addJoinUs): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/JoinUs`, join);
   }
   //get joinus
-  getJoinUs() :Observable<any>{
+  getJoinUs(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/JoinUs`);
   }
   //update joinus
-  updateJoinUs(join : editJoinUs) : Observable<any>{
-    return this.http.put<any>(`${this.baseUrl}/JoinUs/${join.id}`,join);
+  updateJoinUs(join: editJoinUs): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/JoinUs/${join.id}`, join);
   }
   //delete joinus
-  deletejoinUs(id:any){
+  deletejoinUs(id: any) {
     return this.http.delete(`${this.baseUrl}/JoinUs/${id}`);
+  }
+
+  //add cfrp
+  addCfrp(cfrp: addCfrp): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/Offoring_CFRP`, cfrp);
+  }
+
+  //get cfrp
+  getCfrp(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/Offoring_CFRP`);
+  }
+  //update cfrp
+  updateCfrp(cfrp: editCfrp): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/Offoring_CFRP/${cfrp.id}`, cfrp);
+  }
+
+  //delete cfrp
+  deleteCfrp(id: any) {
+    return this.http.delete(`${this.baseUrl}/Offoring_CFRP/${id}`);
   }
 }

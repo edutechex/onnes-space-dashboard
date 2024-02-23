@@ -34,6 +34,11 @@ import { OfferingComponent } from './content-upload/offering/offering.component'
 import { AddOrEditOfferingComponent } from './content-upload/offering/add-or-edit-offering/add-or-edit-offering.component';
 import { JoinUsComponent } from './content-upload/join-us/join-us.component';
 import { AddOrEditJoinUsComponent } from './content-upload/join-us/add-or-edit-join-us/add-or-edit-join-us.component';
+import { HomeImageComponent } from './content-upload/home-image/home-image.component';
+import { AddOrEditHomeImageComponent } from './content-upload/home-image/add-or-edit-home-image/add-or-edit-home-image.component';
+import { CfrpVesselsComponent } from './content-upload/offering/cfrp-vessels/cfrp-vessels.component';
+import { AddOrEditCfrpComponent } from './content-upload/offering/cfrp-vessels/add-or-edit-cfrp/add-or-edit-cfrp.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,11 @@ import { AddOrEditJoinUsComponent } from './content-upload/join-us/add-or-edit-j
     OfferingComponent,
     AddOrEditOfferingComponent,
     JoinUsComponent,
-    AddOrEditJoinUsComponent
+    AddOrEditJoinUsComponent,
+    HomeImageComponent,
+    AddOrEditHomeImageComponent,
+    CfrpVesselsComponent,
+    AddOrEditCfrpComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +83,7 @@ import { AddOrEditJoinUsComponent } from './content-upload/join-us/add-or-edit-j
     MatPaginatorModule,
     MatNativeDateModule,
     MatDialogModule,
+    MatSelectModule
 
   ],
   providers: [],
