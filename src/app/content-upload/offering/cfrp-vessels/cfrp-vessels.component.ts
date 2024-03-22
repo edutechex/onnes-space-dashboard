@@ -27,6 +27,7 @@ export class CfrpVesselsComponent implements OnInit{
   
   public displayedColumns = [
     'id',
+    'title',
     'content',
     'edit/delete',
   ];

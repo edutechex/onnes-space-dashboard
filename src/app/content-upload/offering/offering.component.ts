@@ -27,6 +27,7 @@ export class OfferingComponent implements OnInit{
 
   public displayedColumns = [
     'id',
+    'title',
     'image',
     'content',
     'edit/delete',

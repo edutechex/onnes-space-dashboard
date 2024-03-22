@@ -15,6 +15,10 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> S.No </mat-header-cell>
             <mat-cell *matCellDef="let i=index"> {{this.paginator.pageIndex * this.paginator.pageSize + i + 1}} </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Title </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
         <!-- Navbar  Column -->
         <ng-container matColumnDef="content">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Content </mat-header-cell>

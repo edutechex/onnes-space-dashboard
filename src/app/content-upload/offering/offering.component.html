@@ -16,10 +16,10 @@
             <mat-cell *matCellDef="let i=index"> {{this.paginator.pageIndex * this.paginator.pageSize + i + 1}} </mat-cell>
         </ng-container>
         <!-- Title Column -->
-        <!-- <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Title</mat-header-cell>
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Category Title</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
-        </ng-container> -->
+        </ng-container>
         <!-- Navbar  Column -->
         <ng-container matColumnDef="image">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Image </mat-header-cell>
@@ -27,7 +27,7 @@
         </ng-container>
         <!-- Sub Navbar Column -->
         <ng-container matColumnDef="content">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Content </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Image Title </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.content}} </mat-cell>
         </ng-container>
         <!-- Edit Delete Column -->

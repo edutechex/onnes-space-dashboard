@@ -91,8 +91,39 @@ export interface addJoinUs{
 }
 export interface editCfrp{
   id : number
+  name: string
   content : string
 }
 export interface addCfrp{
+  name: string
   content : string
+}
+
+export interface editPartner{
+  id: number
+  title: string
+  imageFile : string
+  link: string
+}
+export interface addPartner{
+  title: string
+  imageFile : string
+  link: string
+}
+
+export interface editAdvisory{
+  id : number
+  name : string
+  imageFile : string
+  designation : string
+  about : string
+  link : string
+}
+
+export interface addAdvisory{
+  name : string
+  imageFile : string
+  designation : string
+  about : string
+  link : string
 }

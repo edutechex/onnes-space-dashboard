@@ -1,9 +1,9 @@
 <section class="mx-2 p-3 card bg-white rounded-0">
     <div class="ms-3 d-flex justify-content-between align-items-center">
-        <h2 class="ps-3" *ngIf="datas">Edit Offering Item</h2>
-        <h2 class="ps-3" *ngIf="!datas">Add Offering Item</h2>
+        <h2 class="ps-3" *ngIf="datas">Edit Partner Item</h2>
+        <h2 class="ps-3" *ngIf="!datas">Add Partner Item</h2>
     </div>
-    <form [formGroup]="addEditOfferingItemForm" (ngSubmit)="addeditOfferingItem()">
+    <form [formGroup]="addEditPartnerItemForm" (ngSubmit)="addeditPartnerItem()">
         <div class="row my-4">
             <div class="col-lg-12 mb-3">
                 <label for="image" class="col-12 pb-3 fs-4">Select Image :</label>
@@ -12,22 +12,37 @@
                 
             </div>
             <div class="col-lg-12">
-                <mat-label class="col-12 pb-3 fs-4">Category Title :</mat-label>
-                <mat-form-field appearance="outline"  class="col-8">
+                <label for="content" class="col-12 pb-3 fs-4">Title :</label>
+                <!-- <textarea class="form-control" placeholder="Enter content" id="floatingTextarea2" style="height: 100px" formControlName="title"></textarea> -->
+                <mat-form-field appearance="outline" class="col-8">
                     <mat-label>Title</mat-label>
-                    <input matInput  type="text"  formControlName="title">
+                    <input matInput type="text" placeholder="Enter title" formControlName="title">
                 </mat-form-field>
             </div>
-            <div class="col-lg-12">
-                <!-- <label for="content" class="col-12 pb-3 fs-4">Content :</label>
-                <textarea class="form-control" placeholder="Enter content" id="floatingTextarea2" style="height: 100px" formControlName="content"></textarea> -->
-                <mat-label class="col-12 pb-3 fs-4">Image Title :</mat-label>
-                <mat-form-field appearance="outline"  class="col-8">
-                    <mat-label>title</mat-label>
-                    <input matInput  type="text"  formControlName="content">
+            <div class="col-lg-12 row">
+                <mat-label class="col-12 pb-3 fs-4">Link :</mat-label>
+                <mat-form-field appearance="outline" class="col-8">
+                    <mat-label>Link</mat-label>
+                    <input matInput type="text" placeholder="Enter link" formControlName="link">
                 </mat-form-field>
             </div>
         </div>
+        <!-- <div class="row justify-content-center my-4">
+            <div class="col-lg-6 row">
+                <mat-label class="col-12 pb-3 fs-4">Image :</mat-label>
+                <mat-form-field appearance="outline"  class="col-8">
+                    <input  type="file" (change)="this.onFilechange($event)" formControlName="imageFile">
+                </mat-form-field>
+            </div>
+    
+            <div class="col-lg-6 row">
+                <mat-label class="col-12 pb-3 fs-4">Content :</mat-label>
+                <mat-form-field appearance="outline" class="col-8">
+                    <mat-label>content</mat-label>
+                    <input matInput type="text" placeholder="Enter Content" formControlName="content">
+                </mat-form-field>
+            </div>
+        </div> -->
         <div mat-dialog-actions class="my-5">
             <div class="col-lg-5 col-md-12">
                 <button mat-raised-button type="reset" class="" (click)="closeModal()">Cancel</button>

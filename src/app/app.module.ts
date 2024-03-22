@@ -39,6 +39,11 @@ import { AddOrEditHomeImageComponent } from './content-upload/home-image/add-or-
 import { CfrpVesselsComponent } from './content-upload/offering/cfrp-vessels/cfrp-vessels.component';
 import { AddOrEditCfrpComponent } from './content-upload/offering/cfrp-vessels/add-or-edit-cfrp/add-or-edit-cfrp.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PartnerComponent } from './content-upload/partner/partner.component';
+import { AddOrEditPartnerComponent } from './content-upload/partner/add-or-edit-partner/add-or-edit-partner.component';
+import { AdvisoryComponent } from './content-upload/team/advisory/advisory.component';
+import { AddOrEditAdvisoryComponent } from './content-upload/team/advisory/add-or-edit-advisory/add-or-edit-advisory.component';
+import { VisitorsComponent } from './visitors/visitors.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +67,12 @@ import { MatSelectModule } from '@angular/material/select';
     HomeImageComponent,
     AddOrEditHomeImageComponent,
     CfrpVesselsComponent,
-    AddOrEditCfrpComponent
+    AddOrEditCfrpComponent,
+    PartnerComponent,
+    AddOrEditPartnerComponent,
+    AdvisoryComponent,
+    AddOrEditAdvisoryComponent,
+    VisitorsComponent
   ],
   imports: [
     BrowserModule,

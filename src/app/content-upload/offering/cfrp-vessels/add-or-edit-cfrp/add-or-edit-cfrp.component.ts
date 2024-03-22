@@ -24,6 +24,7 @@ export class AddOrEditCfrpComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public datas:any,
   ){
     this.addEditCfrpForm = this.fb.group({
+      name : new FormControl('',[Validators.required]),
       content : new FormControl('',[Validators.required]),
     })
   }
@@ -37,11 +38,13 @@ export class AddOrEditCfrpComponent implements OnInit{
       if(this.datas){
         const editCfrpData : editCfrp = {
           id : this.datas.id,
+          name : this.addEditCfrpForm.controls['name'].value,
           content : this.addEditCfrpForm.controls['content'].value
         }
         this.editCfrpForm(editCfrpData);
       }else{
         const addCfrpData : addCfrp = {
+          name : this.addEditCfrpForm.controls['name'].value,
           content : this.addEditCfrpForm.controls['content'].value
         }
         this.addCfrpForm(addCfrpData);

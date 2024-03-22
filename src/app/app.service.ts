@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { addAboutUs, addBlogNews, addCfrp, addHomeImage, addJoinUs, addOffering, addTeam, editAboutUs, editBlogNews, editCfrp, editHomeImage, editJoinUs, editNavItem, editOffering, editTeam } from './app.model';
+import { addAboutUs, addAdvisory, addBlogNews, addCfrp, addHomeImage, addJoinUs, addOffering, addPartner, addTeam, editAboutUs, editAdvisory, editBlogNews, editCfrp, editHomeImage, editJoinUs, editNavItem, editOffering, editPartner, editTeam } from './app.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,13 @@ export class AppService {
   public homeImage: boolean = false;
   public aboutUs: boolean = false;
   public team: boolean = false;
+  public partner: boolean = false;
+  public advisory: boolean = false;
   public blogNews: boolean = false;
   public offering: boolean = false;
   public joinus: boolean = false;
   public cfrp : boolean = false;
+  public visitor : boolean = false;
 
   public signOut: boolean = false;
   public currentUser: any = [];
@@ -38,10 +41,13 @@ export class AppService {
     this.homeImage = false;
     this.aboutUs = false;
     this.team = false;
+    this.partner = false;
+    this.advisory = false;
     this.blogNews = false;
     this.offering = false;
     this.joinus = false;
     this.cfrp = false;
+    this.visitor = false;
 
 
     switch (sectionName) {
@@ -51,6 +57,9 @@ export class AppService {
       case 'contactusForm':
         this.contactusForm = true;
         break;
+      case 'visitor':
+        this.visitor = true;
+        break;  
       case 'navItem':
         this.navItem = true;
         break;
@@ -63,6 +72,12 @@ export class AppService {
       case 'team':
         this.team = true;
         break;
+      case 'advisory':
+        this.advisory = true;
+        break;  
+      case 'partner':
+        this.partner = true;
+        break;  
       case 'blogNews':
         this.blogNews = true;
         break;
@@ -230,5 +245,44 @@ export class AppService {
   //delete cfrp
   deleteCfrp(id: any) {
     return this.http.delete(`${this.baseUrl}/Offoring_CFRP/${id}`);
+  }
+
+  // add partner
+  addPartner(partner: addPartner){
+    return this.http.post(`${this.baseUrl}/Partner`,partner);
+  }
+  // get partner
+  getPartner(){
+    return this.http.get(`${this.baseUrl}/Partner`);
+  }
+  // update partner
+  updatepartner(partner : editPartner){
+    return this.http.put(`${this.baseUrl}/Partner/${partner.id}`,partner);
+  }
+  //delete partner
+  deletePartner(id: number){
+    return this.http.delete(`${this.baseUrl}/Partner/${id}`);
+  }
+
+  // add advisory
+  addAdvisory(advisory : addAdvisory){
+    return this.http.post(`${this.baseUrl}/Advisory`,advisory);
+  }
+  //get advisory
+  getAdvisory(){
+    return this.http.get(`${this.baseUrl}/advisory`);
+  }
+  //update advisory
+  updateAdvisory(adv: editAdvisory){
+    return this.http.put(`${this.baseUrl}/advisory/${adv.id}`,adv);
+  }
+  //delete advisory
+  deleteAdvisory(id: number){
+    return this.http.delete(`${this.baseUrl}/advisory/${id}`);
+  }
+
+  //get visitors data
+  getVisitorsData(){
+    return this.http.get(`${this.baseUrl}/Visitors`);
   }
 }

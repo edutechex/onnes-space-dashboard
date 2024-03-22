@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
     ChangeDetectorRef.prototype
   );
   adminData: any;
+  visitorData: any;
 
   constructor(
     public appService: AppService,
@@ -33,6 +34,9 @@ export class DashboardComponent implements OnInit {
   
   ngOnInit(): void {
     this.getAdminData();
+    // this.visitorData = sessionStorage.getItem('visitorDetails');
+    // const data = JSON.parse(this.visitorData);
+    // console.log(data);
   }
 
   getAdminData(){
