@@ -63,10 +63,10 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
       </ng-container>
-      <!-- <ng-container matColumnDef="createdOn">
+      <ng-container matColumnDef="createdOn">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Created On </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </mat-cell>
-      </ng-container> -->
+      </ng-container>
       <ng-container matColumnDef="loading">
         <mat-footer-cell *matFooterCellDef colspan="6" class="justify-content-center">
           Loading data...

@@ -20,7 +20,7 @@ export class VisitorsComponent implements OnInit{
     'region',
     'postal',
     'country',
-    // 'createdOn',
+    'createdOn',
   ];
   @ViewChild(MatSort) sort = new MatSort();
   @ViewChild(MatPaginator) paginator = new MatPaginator(
