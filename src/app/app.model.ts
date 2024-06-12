@@ -45,7 +45,7 @@ export interface editTeam{
   imageFile : string
   designation : string
   about : string
-  link : string
+  link1 : string
 }
 
 export interface addTeam{
@@ -53,7 +53,7 @@ export interface addTeam{
   imageFile : string
   designation : string
   about : string
-  link : string
+  link1 : string
 }
 
 export interface editBlogNews{
@@ -84,10 +84,12 @@ export interface addOffering{
 export interface editJoinUs{
   id : number
   content : string
+  mail: string
 }
 
 export interface addJoinUs{
   content : string
+  mail: string
 }
 export interface editCfrp{
   id : number
@@ -110,6 +112,18 @@ export interface addPartner{
   imageFile : string
   link: string
 }
+export interface editInvestor{
+  id: number
+  title: string
+  imageFile : string
+  link: string
+}
+export interface addInvestor{
+  title: string
+  imageFile : string
+  link: string
+}
+
 
 export interface editAdvisory{
   id : number
@@ -126,4 +140,14 @@ export interface addAdvisory{
   designation : string
   about : string
   link : string
+}
+
+export interface editLetsTalk{
+  id: number
+  name: string
+  adress: string
+}
+export interface addLetsTalk{
+  name: string
+  adress: string
 }

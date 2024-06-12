@@ -44,6 +44,10 @@ import { AddOrEditPartnerComponent } from './content-upload/partner/add-or-edit-
 import { AdvisoryComponent } from './content-upload/team/advisory/advisory.component';
 import { AddOrEditAdvisoryComponent } from './content-upload/team/advisory/add-or-edit-advisory/add-or-edit-advisory.component';
 import { VisitorsComponent } from './visitors/visitors.component';
+import { AddOrEditLetsTalkComponent } from './content-upload/lets-talk/add-or-edit-lets-talk/add-or-edit-lets-talk.component';
+import { InvestorsComponent } from './content-upload/investors/investors.component';
+import { AddOrEditInvestorsComponent } from './content-upload/investors/add-or-edit-investors/add-or-edit-investors.component';
+import { LetsTalkComponent } from './content-upload/lets-talk/lets-talk.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +76,11 @@ import { VisitorsComponent } from './visitors/visitors.component';
     AddOrEditPartnerComponent,
     AdvisoryComponent,
     AddOrEditAdvisoryComponent,
-    VisitorsComponent
+    VisitorsComponent,
+    LetsTalkComponent,
+    AddOrEditLetsTalkComponent,
+    InvestorsComponent,
+    AddOrEditInvestorsComponent
   ],
   imports: [
     BrowserModule,

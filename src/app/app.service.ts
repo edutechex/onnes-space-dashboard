@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { addAboutUs, addAdvisory, addBlogNews, addCfrp, addHomeImage, addJoinUs, addOffering, addPartner, addTeam, editAboutUs, editAdvisory, editBlogNews, editCfrp, editHomeImage, editJoinUs, editNavItem, editOffering, editPartner, editTeam } from './app.model';
+import { addAboutUs, addAdvisory, addBlogNews, addCfrp, addHomeImage, addInvestor, addJoinUs, addLetsTalk, addOffering, addPartner, addTeam, editAboutUs, editAdvisory, editBlogNews, editCfrp, editHomeImage, editInvestor, editJoinUs, editLetsTalk, editNavItem, editOffering, editPartner, editTeam } from './app.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,8 @@ export class AppService {
   public joinus: boolean = false;
   public cfrp : boolean = false;
   public visitor : boolean = false;
+  public investors: boolean =false;
+  public letsTalk: boolean = false;
 
   public signOut: boolean = false;
   public currentUser: any = [];
@@ -48,6 +50,8 @@ export class AppService {
     this.joinus = false;
     this.cfrp = false;
     this.visitor = false;
+    this.investors = false;
+    this.letsTalk = false;
 
 
     switch (sectionName) {
@@ -77,7 +81,10 @@ export class AppService {
         break;  
       case 'partner':
         this.partner = true;
-        break;  
+        break;
+      case 'investors':
+        this.investors = true;
+        break;    
       case 'blogNews':
         this.blogNews = true;
         break;
@@ -90,6 +97,9 @@ export class AppService {
       case 'joinus':
         this.joinus = true;
         break;
+      case 'letsTalk':
+        this.letsTalk = true;
+        break;  
       
     }
   }
@@ -264,6 +274,23 @@ export class AppService {
     return this.http.delete(`${this.baseUrl}/Partner/${id}`);
   }
 
+  // add investors
+  addInvestors(investor : addInvestor){
+    return this.http.post(`${this.baseUrl}/investors`,investor);
+  }
+  //get investors
+  getInvestors(){
+    return this.http.get(`${this.baseUrl}/Investors`);
+  }
+  //update investor
+  updateInvestor(investor : editInvestor){
+    return this.http.put(`${this.baseUrl}/Investors/${investor.id}`,investor);
+  }
+  // delete investor
+  deleteInvestors(id: number){
+    return this.http.delete(`${this.baseUrl}/Investors/${id}`);
+  }
+
   // add advisory
   addAdvisory(advisory : addAdvisory){
     return this.http.post(`${this.baseUrl}/Advisory`,advisory);
@@ -280,6 +307,24 @@ export class AppService {
   deleteAdvisory(id: number){
     return this.http.delete(`${this.baseUrl}/advisory/${id}`);
   }
+
+  // add LetsTalk
+  addLetsTalk(talk : addLetsTalk){
+    return this.http.post(`${this.baseUrl}/Let_sTalk`,talk);
+  }
+  //get LetsTalk
+  getLetsTalk(){
+    return this.http.get(`${this.baseUrl}/Let_sTalk`);
+  }
+  //update LetsTalk
+  updateLetsTalk(talk: editLetsTalk){
+    return this.http.put(`${this.baseUrl}/Let_sTalk/${talk.id}`,talk);
+  }
+  //delete LetsTalk
+  deleteLetsTalk(id: number){
+    return this.http.delete(`${this.baseUrl}/Let_sTalk/${id}`);
+  }
+
 
   //get visitors data
   getVisitorsData(){

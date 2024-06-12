@@ -20,6 +20,10 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header>Content </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.content}} </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="mail">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Mail </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mail}} </mat-cell>
+        </ng-container>
         <!-- Edit Delete Column -->
         <ng-container matColumnDef="edit/delete" >
             <mat-header-cell *matHeaderCellDef> Edit/Delete </mat-header-cell>

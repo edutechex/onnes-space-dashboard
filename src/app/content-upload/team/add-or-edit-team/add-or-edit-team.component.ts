@@ -29,7 +29,7 @@ export class AddOrEditTeamComponent implements OnInit{
       imageFile : '',
       designation: new FormControl('',[Validators.required]),
       about: new FormControl('',[Validators.required]),
-      link : new FormControl('',[Validators.required]),
+      link1 : new FormControl('',[Validators.required]),
     })
   }
   ngOnInit(): void {
@@ -53,7 +53,7 @@ export class AddOrEditTeamComponent implements OnInit{
           imageFile : this.addEditTeamItemForm.controls['imageFile'].value,
           designation : this.addEditTeamItemForm.controls['designation'].value,
           about : this.addEditTeamItemForm.controls['about'].value,
-          link : this.addEditTeamItemForm.controls['link'].value,
+          link1 : this.addEditTeamItemForm.controls['link1'].value,
         }
         this.editTeamForm(editTeamData);
       }else{
@@ -62,7 +62,7 @@ export class AddOrEditTeamComponent implements OnInit{
           imageFile : this.addEditTeamItemForm.controls['imageFile'].value,
           designation : this.addEditTeamItemForm.controls['designation'].value,
           about : this.addEditTeamItemForm.controls['about'].value,
-          link : this.addEditTeamItemForm.controls['link'].value,
+          link1 : this.addEditTeamItemForm.controls['link1'].value,
         }
         this.addteamForm(addTeamdata);
       }
@@ -75,7 +75,7 @@ export class AddOrEditTeamComponent implements OnInit{
     formData.append('imageFile',this.file);
     formData.append('designation',this.addEditTeamItemForm.get('designation').value);
     formData.append('about',this.addEditTeamItemForm.get('about').value);
-    formData.append('link',this.addEditTeamItemForm.get('link').value);
+    formData.append('link1',this.addEditTeamItemForm.get('link1').value);
 
 
     this.appService.addTeam(formData).subscribe({
@@ -101,7 +101,7 @@ export class AddOrEditTeamComponent implements OnInit{
     formData.append('imageFile',this.file);
     formData.append('designation',this.addEditTeamItemForm.get('designation').value);
     formData.append('about',this.addEditTeamItemForm.get('about').value);
-    formData.append('link',this.addEditTeamItemForm.get('link').value);
+    formData.append('link1',this.addEditTeamItemForm.get('link1').value);
 
     this.appService.updateTeam(formData).subscribe({
       next:(res)=>{
